@@ -5,10 +5,30 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DbConnection {
+
+    static String databaseUrl = "jdbc:mysql://localhost/Phone?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    static String username = "root";
+    static String password = "tw130-24";
+
+    public static Connection getConnection() {
+        Connection connection = null;
+
+        // Load MySQL JDBC driver
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // Create a connection to the database
+            connection = DriverManager.getConnection(databaseUrl, username, password);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (SQLException e) {
+
+        }
+
+        return connection;
+    }
+
     public static void main(String[] args) {
-        String databaseUrl = "jdbc:mysql://localhost/Phone?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-        String username = "root";
-        String password = "tw130-24";
 
         try {
             // Load MySQL JDBC driver
