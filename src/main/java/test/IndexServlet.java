@@ -1,3 +1,5 @@
+package test;
+
 import utils.DbConnection;
 
 import javax.servlet.ServletException;
@@ -55,5 +57,8 @@ public class IndexServlet extends HttpServlet {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+    public void updatePhone() {
+        String sql = "update ";
     }
 }
