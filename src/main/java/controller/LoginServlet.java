@@ -70,7 +70,6 @@ public class LoginServlet extends HttpServlet {
             int administrator = user.getAdministrator();
 
             if (username_database.equals(username_input) && password_database.equals(password_input) && administrator == 0) {
-                System.out.println("Hello");
                 aoru = true;
                 break;
             } else {
