@@ -71,7 +71,7 @@ public class PhoneDaoImpl implements PhoneDao{
                 phone.setLink(resultSet.getString("link"));
                 phone.setPicture_link(resultSet.getString("picture_link"));
 
-                System.out.println("from PhoneDaoImpl\n" + phone);
+//                System.out.println("from PhoneDaoImpl\n" + phone);
 
                 select_phone.add(phone);
             }

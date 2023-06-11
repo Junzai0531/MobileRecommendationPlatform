@@ -37,17 +37,17 @@
 <body>
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">欢迎光临</a>
+    <a class="navbar-brand" href="/mrp/home">📱</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="http://localhost:8080/mrp/home">主界面<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/mrp/home">主界面<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="http://localhost:8080/mrp/choose">手机推荐</a>
+                <a class="nav-link" href="/mrp/choose">手机推荐</a>
             </li>
         </ul>
     </div>
@@ -58,7 +58,6 @@
         <%
             PhoneService phoneService = new PhoneServiceImpl();
             List<Phone> phones = phoneService.findAllPhones();
-            System.out.println("Hello World!");
             for(Phone phone:phones){
         %>
         <div class="col-lg-4 col-md-6 mb-4">
@@ -71,7 +70,7 @@
                     </div>
                     <div class="card-footer">
                         <h5><%=phone.getPrice()%></h5>
-                        <a href="http://localhost:8080/mrp/show?id=<%= phone.getId() %>" class="btn btn-primary">查看详情</a>
+                        <a href="/mrp/show?id=<%= phone.getId() %>" class="btn btn-primary">查看详情</a>
                     </div>
                 </div>
             </div>

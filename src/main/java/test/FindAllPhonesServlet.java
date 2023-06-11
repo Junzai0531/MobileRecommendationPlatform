@@ -20,6 +20,6 @@ public class FindAllPhonesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Phone> phones = phoneService.findAllPhones();
-        System.out.println("from FindAllPhonesServlet\n" + phones);
+//        System.out.println("from FindAllPhonesServlet\n" + phones);
     }
 }

@@ -52,7 +52,7 @@ public class IndexServlet extends HttpServlet {
 
                 writer.println("id:" + id + "\nphone_name:"  + phone_name);
 
-                System.out.println("id:" + id + "\nphone_name:"  + phone_name);
+//                System.out.println("id:" + id + "\nphone_name:"  + phone_name);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

@@ -15,7 +15,7 @@
 <body>
 <div id="login-container">
   <h2>手机推荐平台</h2>
-  <form id="login-form" action="LoginServlet" method="post">
+  <form id="login-form" action="/mrp/login" method="post">
     <input type="text" id="username" name="username" placeholder="请输入用户名" required><br/>
     <input type="password" id="password" name="password" placeholder="请输入密码" required><br/>
     <input type="submit" id="login" value="登录">
