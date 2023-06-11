@@ -57,20 +57,20 @@
     <div class="row">
         <%
             PhoneService phoneService = new PhoneServiceImpl();
-            List<Phone> phones =phoneService.findAllPhones();
+            List<Phone> phones = phoneService.findAllPhones();
             for(Phone phone:phones){
         %>
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card-container">
                 <div class="card h-100">
-                    <img class="card-img-top card-img" src="https://img0.baidu.com/it/u=1925319375,1686677882&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1684774800&t=ec77d311512b7340d3bcd35bad5bd787" alt="Phone 1">
+                    <img class="card-img-top card-img" src="<%= phone.getPicture_link() %>" alt="Phone 1">
                     <div class="card-body">
-                        <h5 class="card-title"> <%=phone.getPhone_name()%></h5>
-                        <p class="card-text"><%=phone.getPhone_name()+"666"%></p>
+                        <h5 class="card-title"> <%= phone.getPhone_name() %></h5>
+                        <p class="card-text"><%= phone.getPhone_name() + "  666" %></p>
                     </div>
                     <div class="card-footer">
                         <h5><%=phone.getPrice()%></h5>
-                        <a href="#" class="btn btn-primary">View Details</a>
+                        <a href="http://localhost:8080/mrp/show?id=<%= phone.getId() %>" class="btn btn-primary">查看详情</a>
                     </div>
                 </div>
             </div>

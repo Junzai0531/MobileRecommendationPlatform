@@ -14,4 +14,9 @@ public class PhoneServiceImpl implements PhoneService{
     public List<Phone> findAllPhones() {
         return phoneDao.findPhone();
     }
+
+    @Override
+    public List<Phone> selectPhone(String id) {
+        return phoneDao.selectPhone(id);
+    }
 }

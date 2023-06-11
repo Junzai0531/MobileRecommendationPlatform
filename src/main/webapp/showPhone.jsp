@@ -11,7 +11,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
     PhoneService phoneService = new PhoneServiceImpl();
-    List<Phone>phones = phoneService.findAllPhones();
+
+    String id = request.getParameter("id");
+    List<Phone> phones = phoneService.selectPhone(id);
 %>
 
 <!DOCTYPE html>
@@ -40,53 +42,59 @@
     </div>
 </nav>
 
+<%
+    for(Phone phone: phones) {
+%>
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-6">
-            <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/iphone-13-finish-select-202207-6-1inch-starlight?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1656712888655" class="img-fluid" alt="iPhone 13">
+            <img src="<%= phone.getPicture_link() %>" class="img-fluid" alt="iPhone 13">
         </div>
         <div class="col-md-6">
             <table class="table">
                 <tr>
                     <th>名字</th>
-                    <td>iPhone 13</td>
+                    <td><%= phone.getPhone_name() %></td>
                 </tr>
                 <tr>
                     <th>手机厂家</th>
-                    <td>Apple</td>
+                    <td><%= phone.getPhone_manufacturer() %></td>
                 </tr>
                 <tr>
                     <th>处理器</th>
-                    <td>A15 Bionic</td>
+                    <td><%= phone.getChip() %></td>
                 </tr>
-                <tr>
-                    <th>屏幕</th>
-                    <td>6.1英寸全面屏 OLCD</td>
-                </tr>
-                <tr>
-                    <th>屏幕参数</th>
-                    <td>2532*1170像素分辨率，460 ppi</td>
-                </tr>
+<%--                <tr>--%>
+<%--                    <th>屏幕</th>--%>
+<%--                    <td>6.1英寸全面屏 OLCD</td>--%>
+<%--                </tr>--%>
+<%--                <tr>--%>
+<%--                    <th>屏幕参数</th>--%>
+<%--                    <td>2532*1170像素分辨率，460 ppi</td>--%>
+<%--                </tr>--%>
                 <tr>
                     <th>存储规格</th>
-                    <td>128GB, 256GB, 512GB</td>
+                    <td><%= phone.getStorage() %></td>
                 </tr>
                 <tr>
                     <th>价格</th>
-                    <td>¥5399, ¥6299, ¥8099</td>
+                    <td><%= phone.getPrice() %></td>
                 </tr>
                 <tr>
                     <th>官方网站</th>
-                    <td><u><a href="https://www.apple.com.cn/shop/buy-iphone/iphone-13/MLDV3CH/A">点击此处跳转官网</a></u></td>
+                    <td><u><a href="<%= phone.getLink() %>">点击此处跳转官网</a></u></td>
                 </tr>
                 <tr>
                     <th>摄像头</th>
-                    <td>1200 万像素双摄系统 (主摄及超广角)</td>
+                    <td><%= phone.getCamera() %></td>
                 </tr>
             </table>
         </div>
     </div>
 </div>
+<%
+    }
+%>
 </body>
 </html>
 
