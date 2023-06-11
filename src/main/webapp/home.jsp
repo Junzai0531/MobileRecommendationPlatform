@@ -58,6 +58,7 @@
         <%
             PhoneService phoneService = new PhoneServiceImpl();
             List<Phone> phones = phoneService.findAllPhones();
+            System.out.println("Hello World!");
             for(Phone phone:phones){
         %>
         <div class="col-lg-4 col-md-6 mb-4">
