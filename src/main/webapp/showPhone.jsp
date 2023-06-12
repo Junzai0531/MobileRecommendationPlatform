@@ -38,9 +38,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="/mrp/choose">手机推荐</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="/mrp/">退出<span class="sr-only">(current)</span></a>
-            </li>
         </ul>
     </div>
 </nav>
