@@ -19,7 +19,7 @@ public class PhoneShowServlet extends HomeServlet{
             throws ServletException, IOException {
 
         List<Phone> phones = phoneService.findAllPhones();
-        System.out.println("from FindAllPhonesServlet\n" + phones);
+//        System.out.println("from FindAllPhonesServlet\n" + phones);
 
         request.getRequestDispatcher("/showPhone.jsp").forward(request, response);
     }
