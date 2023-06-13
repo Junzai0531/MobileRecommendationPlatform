@@ -12,13 +12,12 @@ import java.util.List;
 
 public class PhoneDaoImpl implements PhoneDao{
 
-    Connection connection = DbConnection.getConnection();
-
     public List<Phone> findPhone() {
         List<Phone> phones = new ArrayList<>();
         String sql = "select * from phones";
 
         try {
+            Connection connection = DbConnection.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
 
@@ -56,6 +55,7 @@ public class PhoneDaoImpl implements PhoneDao{
         String sql = "select * from phones where id = " + idx;
 
         try {
+            Connection connection = DbConnection.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
 
@@ -90,6 +90,7 @@ public class PhoneDaoImpl implements PhoneDao{
     @Override
     public boolean insertPhone(String id, String phone_name, String phone_manufacturer, String chip, String storage, String price, String camera, String link, String picture_link) {
         try {
+            Connection connection = DbConnection.getConnection();
             String sql = "insert into phones (id, phone_name, phone_manufacturer, chip, storage, price, camera, link, picture_link) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(sql);
 
@@ -116,6 +117,7 @@ public class PhoneDaoImpl implements PhoneDao{
     @Override
     public boolean deletePhone(String id) {
         try {
+            Connection connection = DbConnection.getConnection();
             String sql = "delete from phones where id = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
 
@@ -133,6 +135,7 @@ public class PhoneDaoImpl implements PhoneDao{
     @Override
     public boolean updatePhone(String id, String phone_name, String phone_manufacturer, String chip, String storage, String price, String camera, String link, String picture_link) {
         try {
+            Connection connection = DbConnection.getConnection();
             String sql = "update phones set phone_name = ?, phone_manufacturer = ?, chip = ?, storage = ?, price = ?, camera = ?, link = ?, picture_link = ? where id = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
 

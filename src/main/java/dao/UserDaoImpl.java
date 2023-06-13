@@ -13,14 +13,13 @@ import java.util.List;
 
 public class UserDaoImpl implements UserDao{
 
-    Connection connection = DbConnection.getConnection();
-
     @Override
     public List<User> selectUser(String username) {
         List<User> select_user = new ArrayList<>();
         String sql = "select * from users where username = '" + username + "'";
 
         try {
+            Connection connection = DbConnection.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
 
@@ -55,6 +54,7 @@ public class UserDaoImpl implements UserDao{
         String sql = "select * from users where id = '" + id + "'";
 
         try {
+            Connection connection = DbConnection.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
 
@@ -86,6 +86,7 @@ public class UserDaoImpl implements UserDao{
     @Override
     public boolean insertUser(String username, String password, String phone_number, String email, String age, String gender, String administrator) {
         try {
+            Connection connection = DbConnection.getConnection();
             String sql = "insert into users (username, password, phone_number, email, age, gender, administrator) values (?, ?, ?, ?, ?, ?, 0)";
             PreparedStatement statement = connection.prepareStatement(sql);
 
@@ -112,6 +113,7 @@ public class UserDaoImpl implements UserDao{
         String sql = "select * from users";
 
         try {
+            Connection connection = DbConnection.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
 
@@ -143,6 +145,7 @@ public class UserDaoImpl implements UserDao{
     @Override
     public boolean deleteUser(String id) {
         try {
+            Connection connection = DbConnection.getConnection();
             String sql = "delete from users where id = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
 
@@ -160,6 +163,7 @@ public class UserDaoImpl implements UserDao{
     @Override
     public boolean updateUser(String id, String username, String password, String phone_number, String email, String age, String gender, String administrator) {
         try {
+            Connection connection = DbConnection.getConnection();
             String sql = "update users set username = ?, password = ?, phone_number = ?, email = ?, age = ?, gender = ?, administrator = ? where id = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
 
