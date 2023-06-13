@@ -16,7 +16,6 @@ public class PhoneDaoImpl implements PhoneDao{
 
     public List<Phone> findPhone() {
         List<Phone> phones = new ArrayList<>();
-        Connection connection = DbConnection.getConnection();
         String sql = "select * from phones";
 
         try {

@@ -1,19 +1,19 @@
-<%@ page import="entity.Phone" %>
+<%@ page import="service.UserService" %>
+<%@ page import="entity.User" %>
 <%@ page import="java.util.List" %>
-<%@ page import="service.PhoneServiceImpl" %>
-<%@ page import="service.PhoneService" %><%--
+<%@ page import="service.UserServiceImpl" %><%--
   Created by IntelliJ IDEA.
   User: ruanzijun
   Date: 2023/6/13
-  Time: 10:29
+  Time: 18:49
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-    PhoneService phoneService = new PhoneServiceImpl();
+    UserService userService = new UserServiceImpl();
 
     String id = request.getParameter("id");
-    List<Phone> phones = phoneService.selectPhone(id);
+    List<User> users = userService.selectUserById(id);
 %>
 <!DOCTYPE html>
 <html>
@@ -47,42 +47,38 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <h3>编辑手机信息</h3>
-            <form action="/mrp/updatephone" method="post">
+            <h3>编辑用户信息</h3>
+            <form action="/mrp/updateuser" method="post">
                 <%
-                    for (Phone phone: phones) {
+                    for (User user: users) {
                 %>
                 <div class="form-group">
-                    <label>手机名</label>
-                    <input type="text" name="phone_name" class="form-control" value="<%= phone.getPhone_name() %>" required>
+                    <label>用户名</label>
+                    <input type="text" name="username" class="form-control" value="<%= user.getUsername() %>" required>
                 </div>
                 <div class="form-group">
-                    <label>手机厂商</label>
-                    <input type="text" name="phone_manufacturer" class="form-control" value="<%= phone.getPhone_manufacturer() %>" required>
+                    <label>密码</label>
+                    <input type="text" name="password" class="form-control" value="<%= user.getPassword() %>" required>
                 </div>
                 <div class="form-group">
-                    <label>处理器</label>
-                    <input type="text" name="chip" class="form-control" value="<%= phone.getChip() %>"  required>
+                    <label>手机号</label>
+                    <input type="text" name="phone_number" class="form-control" value="<%= user.getPhone_number() %>"  required>
                 </div>
                 <div class="form-group">
-                    <label>存储规格</label>
-                    <input type="text" name="storage" class="form-control" value="<%= phone.getStorage() %>"  required>
+                    <label>电子邮箱个</label>
+                    <input type="text" name="email" class="form-control" value="<%= user.getEmail() %>"  required>
                 </div>
                 <div class="form-group">
-                    <label>价格</label>
-                    <input type="text" name="price" class="form-control" value="<%= phone.getPrice() %>"  required>
+                    <label>年龄</label>
+                    <input type="text" name="age" class="form-control" value="<%= user.getAge() %>"  required>
                 </div>
                 <div class="form-group">
-                    <label>相机参数</label>
-                    <input type="text" name="camera" class="form-control" value="<%= phone.getCamera() %>"  required>
+                    <label>性别</label>
+                    <input type="text" name="gender" class="form-control" value="<%= user.getGender() %>"  required>
                 </div>
                 <div class="form-group">
-                    <label>官网链接</label>
-                    <input type="text" name="link" class="form-control" value="<%= phone.getLink() %>"  required>
-                </div>
-                <div class="form-group">
-                    <label>图片链接</label>
-                    <input type="text" name="picture_link" class="form-control" value="<%= phone.getPicture_link() %>"  required>
+                    <label>是否为管理员</label>
+                    <input type="text" name="administrator" class="form-control" value="<%= user.getAdministrator() %>"  required>
                 </div>
                 <%
                     }
@@ -98,5 +94,3 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-

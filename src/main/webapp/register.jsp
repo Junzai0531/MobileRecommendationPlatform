@@ -23,7 +23,7 @@
 <div class="container">
   <div class="register-container">
     <h2>用户注册</h2>
-    <form action="register" method="post">
+    <form action="/mrp/register" method="post">
       <div class="form-group">
         <label for="username">用户名:</label>
         <input type="text" class="form-control" id="username" name="username">
@@ -38,7 +38,7 @@
       </div>
       <div class="form-group">
         <label for="phone">手机号:</label>
-        <input type="text" class="form-control" id="phone" name="phone">
+        <input type="text" class="form-control" id="phone" name="phone_number">
       </div>
       <div class="form-group">
         <label for="email">邮箱:</label>

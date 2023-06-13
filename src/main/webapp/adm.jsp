@@ -40,6 +40,11 @@
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item active">
+                <a class="nav-link" href="/mrp/admuser">用户信息管理<span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item active">
                 <a class="nav-link" href="/mrp/">退出<span class="sr-only">(current)</span></a>
             </li>
         </ul>
