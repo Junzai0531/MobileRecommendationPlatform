@@ -130,4 +130,33 @@ public class PhoneDaoImpl implements PhoneDao{
         }
         return true;
     }
+
+    @Override
+    public boolean updatePhone(String id, String phone_name, String phone_manufacturer, String chip, String storage, String price, String camera, String link, String picture_link) {
+        try {
+            String sql = "update phones set phone_name = ?, phone_manufacturer = ?, chip = ?, storage = ?, price = ?, camera = ?, link = ?, picture_link = ? where id = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+
+//            statement.setString(1, id);
+            statement.setString(1, phone_name);
+            statement.setString(2, phone_manufacturer);
+            statement.setString(3, chip);
+            statement.setString(4, storage);
+            statement.setString(5, price);
+            statement.setString(6, camera);
+            statement.setString(7, link);
+            statement.setString(8, picture_link);
+
+            statement.setString(9, id);
+
+            statement.executeUpdate();
+
+            statement.close();
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return true;
+    }
 }

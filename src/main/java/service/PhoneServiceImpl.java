@@ -28,4 +28,9 @@ public class PhoneServiceImpl implements PhoneService{
     public boolean deletePhone(String id) {
         return phoneDao.deletePhone(id);
     }
+
+    @Override
+    public boolean updatePhone(String id, String phone_name, String phone_manufacturer, String chip, String storage, String price, String camera, String link, String picture_link) {
+        return phoneDao.updatePhone(id, phone_name, phone_manufacturer, chip, storage, price, camera, link, picture_link);
+    }
 }

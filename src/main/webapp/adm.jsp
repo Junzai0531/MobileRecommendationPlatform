@@ -28,7 +28,7 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/mrp/home">管理员</a>
+    <a class="navbar-brand" href="/mrp/adm"/>管理员</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -79,7 +79,7 @@
         <td><%= phone.getLink() %></td>
         <td><%= phone.getPicture_link() %></td>
         <td>
-            <a href="EditPhoneServlet?id=<%= phone.getId() %>"><u>编辑</u></a>
+            <a href="/mrp/updatephone?id=<%= phone.getId() %>"><u>编辑</u></a>
             <a href="/mrp/delphone?id=<%= phone.getId() %>"><u>删除</u></a>
         </td>
     </tr>
