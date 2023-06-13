@@ -52,6 +52,8 @@ public class LoginServlet extends HttpServlet {
 
             if (AorU == true) {
                 response.sendRedirect("/mrp/home");
+            } else {
+                response.sendRedirect("/mrp/adm");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -72,7 +74,7 @@ public class LoginServlet extends HttpServlet {
             if (username_database.equals(username_input) && password_database.equals(password_input) && administrator == 0) {
                 aoru = true;
                 break;
-            } else {
+            } else if (username_database.equals(username_input) && password_database.equals(password_input) && administrator == 1){
                 aoru = false;
                 break;
             }
